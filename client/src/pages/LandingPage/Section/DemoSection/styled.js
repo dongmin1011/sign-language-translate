@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+export const SignSet = styled.div``;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,6 +11,36 @@ export const Container = styled.div`
   background-color: #f2f2f2; // 백그라운드 컬러를 밝은 톤으로 변경
   padding: 20px;
   color: #333; // 기본 텍스트 컬러를 어둡게 설정
+
+  .camera-tip {
+    float: left;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 44px 64px;
+    width: 50%;
+    border: none;
+    padding: 0;
+  }
+  #tip-btn {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    font-size: 16px;
+    height: 40px;
+    width: 160px;
+    color: #aaaaaa;
+
+    border: 3px solid #cccccc;
+    cursor: pointer;
+
+    &:hover {
+      transition: 0.2s;
+      border: 3px solid #000;
+
+      color: #000; // 호버 상태일 때의 글자 컬러를 밝게 설정
+    }
+  }
 
   .moveto {
     margin-bottom: 180px;
@@ -22,46 +54,46 @@ export const Container = styled.div`
     margin-bottom: 24px;
   }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 13px;
-}
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 13px;
+  }
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-  left: -20px;
-}
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    left: -20px;
+  }
 
-.tooltip .fa-question-circle {
-  position: absolute;
-  top: -5px; 
-  right: 0; 
-  font-size: 25px;
-  color : #a0a0a0;
-}
-
+  .tooltip .fa-question-circle {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    font-size: 25px;
+    color: #a0a0a0;
+  }
 `;
 
 export const CameraAndPreviewContainer = styled.div`
+  position: relative;
   margin-top: 120px;
   display: flex;
   justify-content: center;
@@ -206,7 +238,7 @@ export const CaptureIntervalInput = styled.input`
   &:focus {
     outline: none;
   }
-  height:80px;
+  height: 80px;
 `;
 
 export const LoadingBar = styled.div`

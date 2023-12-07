@@ -14,7 +14,11 @@ import {
   CameraAndPreviewContainer,
   LoadingBar,
   ButtonContainer,
+  SignSet,
 } from "./styled";
+import signLanImage from "./img/sign-lan-image.png";
+import howcamera from "./img/howusecamera.png";
+import Modal from "../../../../components/Modal";
 
 function DemoSection() {
   const [isLoading, setIsLoading] = useState(false);
@@ -108,12 +112,29 @@ function DemoSection() {
     return () => clearInterval(id);
   }, [isCapturing, countdown]);
 
+  const [showTip, setShowTip] = useState(false);
+  const [showCameraTip, setShowCameraTip] = useState(false);
+
+  const toggleShowTip = () => {
+    setShowTip(!showTip);
+  };
+
   return (
     <Container>
       <h1 className="moveto" id="demo-section" />
       <h1>수화로 세상과 소통해 보아요.</h1>
       <h1>당신의 이야기를 듣고 싶습니다.</h1>
+
+      <Modal show={showCameraTip} onClose={() => setShowCameraTip(false)}>
+        <img src={howcamera} />
+      </Modal>
+
+      {showTip && <img className="sign-set-image" src={signLanImage} />}
+      {/*<SignSet className={showTip ? "active" : ""} />*/}
       <CameraAndPreviewContainer>
+        <button id="tip-btn" onClick={toggleShowTip}>
+          수화 알아가기
+        </button>
         <WebcamView>
           <Webcam ref={webcamRef} />
         </WebcamView>
@@ -138,6 +159,7 @@ function DemoSection() {
           )}
         </ImagePreview>
       </CameraAndPreviewContainer>
+
       <ButtonContainer>
         <div className="flex_1">
           <Button
@@ -154,7 +176,7 @@ function DemoSection() {
           >
             {isCapturing ? "자동 캡처 중지" : "자동 캡처 시작"}
           </Button>
-          
+
           <CaptureIntervalInput
             className="btn_1"
             type="number"
@@ -169,13 +191,19 @@ function DemoSection() {
             // title="자동 캡처를 할 때 캡처 간 딜레이 시간입니다."
           />
           <div className="tooltip">
-          <FaRegQuestionCircle className="fa-question-circle"/>
-          <span className="tooltiptext">
-          자동 캡처를 할 때 캡처 간 딜레이 시간입니다.
-          </span>
+            <FaRegQuestionCircle className="fa-question-circle" />
+            <span className="tooltiptext">
+              자동 캡처를 할 때 캡처 간 딜레이 시간입니다.
+            </span>
           </div>
         </div>
       </ButtonContainer>
+      <button
+        className="camera-tip"
+        onClick={() => setShowCameraTip(!showCameraTip)}
+      >
+        카메라가 안보이시나요?
+      </button>
     </Container>
   );
 }

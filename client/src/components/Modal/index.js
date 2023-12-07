@@ -12,9 +12,9 @@ const Modal = (props) => {
   return (
     <Container onClick={onCloseClick}>
       <div className="content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={props.onClose}>
-          <IoMdClose />
-        </button>
+        {/*<button className="close-btn" onClick={props.onClose}>*/}
+        {/*  <IoMdClose />*/}
+        {/*</button>*/}
         {props.children}
       </div>
     </Container>
