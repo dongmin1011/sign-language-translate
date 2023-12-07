@@ -15,6 +15,7 @@ import {
   LoadingBar,
   ButtonContainer,
   SignSet,
+  TipContent,
 } from "./styled";
 import signLanImage from "./img/sign-lan-image.png";
 import howcamera from "./img/howusecamera.png";
@@ -127,6 +128,14 @@ function DemoSection() {
 
       <Modal show={showCameraTip} onClose={() => setShowCameraTip(false)}>
         <img src={howcamera} />
+        <br />
+        <br />
+        <br />
+
+        <TipContent>
+          다른 프로그램에서 <span>&nbsp;카메라를 사용중&nbsp;</span>
+          인지 확인해 주세요.
+        </TipContent>
       </Modal>
 
       {showTip && <img className="sign-set-image" src={signLanImage} />}

@@ -2,6 +2,19 @@ import styled from "styled-components";
 
 export const SignSet = styled.div``;
 
+export const TipContent = styled.h2`
+  display: flex;
+  justify-content: center;
+  font-size: 1.8em;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  span {
+    font-size: 2em;
+    color: #ffa726;
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
